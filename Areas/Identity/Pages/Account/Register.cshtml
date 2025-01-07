@@ -41,9 +41,22 @@
                     <option value="Esmeraldas">Esmeraldas</option>
                     <option value="Loja">Loja</option>
                     <option value="Sto.Domingo">Sto.Domingo</option>
-
                 </select>
                 <span asp-validation-for="Input.StateName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <select asp-for="Input.StudyProgram" class="form-control" aria-required="true" aria-placeholder="Select Program">
+                    <option value="" disabled selected>Select your study program</option>
+                    <option value="Software">Software</option>
+                    <option value="Ciberseguridad">Ciberseguridad</option>
+                    <option value="Inteligencia Artificial">Inteligencia Artificial</option>
+                    <option value="Administracion de Empresas">Administracion de Empresas</option>
+                    <option value="Psicologia">Psicologia</option>
+                    <option value="Negocios Internacionales">Negocios Internacionales</option>
+                    <option value="Medicina">Medicina</option>
+                    <option value="Odontologia">Odontologia</option>
+                </select>
+                <span asp-validation-for="Input.StudyProgram" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
