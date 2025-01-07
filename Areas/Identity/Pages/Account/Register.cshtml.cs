@@ -80,6 +80,7 @@ namespace RamirezforaneoApp.Areas.Identity.Pages.Account
             [Required(ErrorMessage = "Select a program study")]
             public string StudyProgram { get; set; }
             [Required(ErrorMessage = "Select the session you are currently")]
+            [RegularExpression(@"[0-9]", ErrorMessage ="Invalid session number")]
             public int SessionNumber { get; set; }
             [Required(ErrorMessage = "Select the state you are from")]
             public string StateName { get; set; }
