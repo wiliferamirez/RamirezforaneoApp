@@ -84,6 +84,9 @@ namespace RamirezforaneoApp.Areas.Identity.Pages.Account
             [Required(ErrorMessage = "Select the state you are from")]
             public string StateName { get; set; }
             public DateTime UserCreationDate { get; set; } = DateTime.Now;
+            [Required(ErrorMessage ="User Name is required")]
+            [Display(Name = "Name")]
+            public string UserName { get; set; }
 
 
             [Required]
@@ -125,7 +128,7 @@ namespace RamirezforaneoApp.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-                user.UserName = Input.Email;
+                user.UserName = Input.UserName;
                 user.Email = Input.Email;
                 user.CedulaUser = Input.CedulaUser;
                 user.StudyProgram = Input.StudyProgram;
