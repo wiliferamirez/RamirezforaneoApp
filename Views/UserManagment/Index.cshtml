@@ -1,0 +1,29 @@
+﻿@* Views/UserManagement/Index.cshtml *@
+@model IEnumerable<User>
+
+<table class="table-bordered rounded">
+	<thead>
+		<tr>
+			<th>Username</th>
+			<th>Cedula</th>
+			<th>Study Program</th>
+			<th>Session Number</th>
+			<th>State</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var User in Model)
+		{
+			<tr>
+				<td>@User.Email</td>
+				<td>@User.CedulaUser</td>
+				<td>@User.StudyProgram</td>
+				<td>@User.SessionNumber</td>
+				<td>@User.StateName</td>
+
+			</tr>
+		}
+	</tbody>
+
+</table>

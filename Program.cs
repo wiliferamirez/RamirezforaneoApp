@@ -21,6 +21,10 @@ namespace RamirezforaneoApp
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.AccessDeniedPath = "/Account/AccesDenied";
+            });
 
             var app = builder.Build();
 
