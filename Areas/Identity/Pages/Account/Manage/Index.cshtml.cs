@@ -30,7 +30,12 @@ namespace RamirezforaneoApp.Areas.Identity.Pages.Account.Manage
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
+        public string CedulaUser {  get; set; }
         public string Username { get; set; }
+        public string StudyProgram { get; set; }
+        public int SessionNumber {  get; set; }
+        public string StateName { get; set; }
+        public DateTime UserCreationDate { get; set; }
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -59,6 +64,7 @@ namespace RamirezforaneoApp.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
         }
 
         private async Task LoadAsync(User user)
@@ -81,6 +87,12 @@ namespace RamirezforaneoApp.Areas.Identity.Pages.Account.Manage
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
+            CedulaUser = user.CedulaUser;
+            StudyProgram = user.StudyProgram;
+            SessionNumber = user.SessionNumber;
+            StateName = user.StateName;
+            UserCreationDate = user.UserCreationDate;
+
 
             await LoadAsync(user);
             return Page();
