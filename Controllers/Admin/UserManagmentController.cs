@@ -19,6 +19,17 @@ namespace RamirezforaneoApp.Controllers.Admin
             var users = _userManager.Users.ToList();
             return View(users);
         }
+        [HttpGet]
+        public async Task<IActionResult> Details(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var user = await _userManager.FindByIdAsync(id);
+            return View(user);
+
+        }
 
     }
 }
