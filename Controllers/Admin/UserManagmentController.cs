@@ -31,5 +31,39 @@ namespace RamirezforaneoApp.Controllers.Admin
 
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            if (id == null) return NotFound();
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
+            return View(user);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(User user)
+        {
+            if (!ModelState.IsValid) return View(user);
+
+            var existingUser = await _userManager.FindByIdAsync(user.Id);
+            if (existingUser == null) return NotFound();
+
+            existingUser.UserName = user.UserName;
+            existingUser.CedulaUser = user.CedulaUser;
+            existingUser.StudyProgram = user.StudyProgram;
+            existingUser.SessionNumber = user.SessionNumber;
+            existingUser.StateName = user.StateName;
+            existingUser.PhoneNumber = user.PhoneNumber;
+
+            var result = await _userManager.UpdateAsync(existingUser);
+            if (result.Succeeded)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+            return View(user);
+        }
     }
 }
