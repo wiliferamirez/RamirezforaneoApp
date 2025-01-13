@@ -2,6 +2,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using RamirezforaneoApp.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.WebUtilities;
+using System.Text.Encodings.Web;
+using System.Text;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace RamirezforaneoApp.Controllers.Admin
 {
@@ -9,10 +15,13 @@ namespace RamirezforaneoApp.Controllers.Admin
     public class UserManagmentController : Controller
     {
         private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ILogger _logger;
 
-        public UserManagmentController(UserManager<User> userManager)
+        public UserManagmentController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
+            _roleManager = roleManager ?? throw new ArgumentNullException(nameof(roleManager));
         }
         public async Task<IActionResult>Index()
         {
@@ -92,6 +101,14 @@ namespace RamirezforaneoApp.Controllers.Admin
             
             return View(user);
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return RedirectToPage("/Account/Register", new { area = "Identity" });
+        }
+
+
 
 
 
