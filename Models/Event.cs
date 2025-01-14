@@ -19,9 +19,12 @@ namespace RamirezforaneoApp.Models
         [Display(Name = "Event Description")]
         public string EventDescription { get; set; }
 
-        [ForeignKey("CategoryId")]
-        public int CategoryRefId { get; set; }
-        public Category EventCategory { get; set; }
+        [Required(ErrorMessage = "Please select a category")]
+        public int CategoryId { get; set; }
+
+        [ForeignKey(nameof(CategoryId))]
+        [ValidateNever]
+        public Category Category { get; set; }
 
         [Required(ErrorMessage = "Please enter the location of the event")]
         [Display(Name = "Location")]

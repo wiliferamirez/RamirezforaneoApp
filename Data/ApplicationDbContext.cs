@@ -11,5 +11,6 @@ namespace RamirezforaneoApp.Data
         {
         }
         public DbSet<RamirezforaneoApp.Models.Category> Category { get; set; } = default!;
+        public DbSet<RamirezforaneoApp.Models.Event> Event { get; set; } = default!;
     }
 }
