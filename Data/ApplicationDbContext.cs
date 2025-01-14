@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RamirezforaneoApp.Models;
 
 namespace RamirezforaneoApp.Data
 {
@@ -9,5 +10,6 @@ namespace RamirezforaneoApp.Data
             : base(options)
         {
         }
+        public DbSet<RamirezforaneoApp.Models.Category> Category { get; set; } = default!;
     }
 }
