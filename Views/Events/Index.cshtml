@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<RamirezforaneoApp.Models.Event>
 
 @{
-    ViewData["Title"] = "Events Management";
+    ViewData["Title"] = "Foraneo Events";
 }
 
 <h1>Index</h1>
@@ -30,9 +30,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.EventEndDate)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EventCreationDate)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -58,12 +55,7 @@
                 @Html.DisplayFor(modelItem => item.EventEndDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EventCreationDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.EventId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EventId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EventId">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.EventId">Details</a>
             </td>
         </tr>
 }

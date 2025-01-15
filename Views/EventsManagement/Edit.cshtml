@@ -1,7 +1,7 @@
 ﻿@model RamirezforaneoApp.Models.Event
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Event";
 }
 
 <h1>Edit</h1>
@@ -42,11 +42,6 @@
                 <label asp-for="EventEndDate" class="control-label"></label>
                 <input asp-for="EventEndDate" class="form-control" />
                 <span asp-validation-for="EventEndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EventCreationDate" class="control-label"></label>
-                <input asp-for="EventCreationDate" class="form-control" />
-                <span asp-validation-for="EventCreationDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
