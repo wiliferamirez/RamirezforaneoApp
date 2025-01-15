@@ -30,13 +30,13 @@ namespace RamirezforaneoApp.Models
         [Display(Name = "Location")]
         public string EventLocation { get; set; }
 
-        [DataType(dataType: DataType.Date)]
+        [DataType(dataType: DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm}", ApplyFormatInEditMode = true)]
         [Display(Name = "Start Date")]
         [Required(ErrorMessage = "Please enter the start date of the event")]
         public DateTime EventStartDate { get; set; }
 
-        [DataType(dataType: DataType.Date)]
+        [DataType(dataType: DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm}", ApplyFormatInEditMode = true)]
         [Display(Name = "End Date")]
         [Required(ErrorMessage = "Please enter the end date of the event")]
